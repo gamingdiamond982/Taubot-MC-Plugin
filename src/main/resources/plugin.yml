@@ -1,0 +1,30 @@
+name: taubot
+version: '1.0-SNAPSHOT'
+main: dev.qwrky.taubot.Taubot
+api-version: '1.21'
+
+permissions:
+  taubot.link:
+    description: "Grants permission to link your account to taubot"
+  taubot.balance:
+    description: "Grants permission to view the balance of your taubot account"
+  taubot.pay:
+    description: "Grants permission to make transfers"
+
+
+commands:
+  link:
+    description: Starts linking your MC account with taubot
+    usage: /link
+    permission: taubot.link
+  balance:
+    description: Gets the balance on the linked user account
+    usage: /balance
+    permission: taubot.balance
+  pay:
+    description: Pays a user or government account
+    usage: /pay {minecraft username | @ + taubot account name} {amount}
+    permission: taubot.pay
+
+
+
