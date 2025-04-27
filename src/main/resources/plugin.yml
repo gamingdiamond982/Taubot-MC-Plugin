@@ -6,10 +6,13 @@ api-version: '1.21'
 permissions:
   taubot.link:
     description: "Grants permission to link your account to taubot"
+    default: true
   taubot.balance:
     description: "Grants permission to view the balance of your taubot account"
+    default: true
   taubot.pay:
     description: "Grants permission to make transfers"
+    default: true
 
 
 commands:

@@ -121,6 +121,7 @@ public class APIManager {
                                     callback.setResult(null);
                                     callback.run();
                                 }
+                                keyMap.remove(player.getUniqueId());
                                 callback.setResult(APIUri + "/oauth/grant?ref="+player.getUniqueId()+"&aid="+appID);
                                 callback.run();
                             }
@@ -136,6 +137,8 @@ public class APIManager {
     private void getAuthToken(Player player, Callback<String> callback) {
         if (keyMap.containsKey(player.getUniqueId())) {
             callback.setResult(keyMap.get(player.getUniqueId()));
+            callback.run();
+            return;
         }
         fetchAuthToken(player, callback);
     }
@@ -156,6 +159,7 @@ public class APIManager {
                         e.printStackTrace();
                         throw new RuntimeException(e);
                     }
+                    keyMap.put(player.getUniqueId(), key.key);
                     callback.setResult(key.key);
                     callback.run();
                 }
